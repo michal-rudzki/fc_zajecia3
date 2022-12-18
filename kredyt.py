@@ -41,11 +41,15 @@ year = {
 def main(percent_above_inflation, installment_amount):
     for x in year.values():
         for key, value in x.items():
-            print(f"{key}" + " -----> " + f"{( 1 + (( float(value) + float(percent_above_inflation)) / 1200 )) * float(loan['amount']) - float(installment_amount)}")
+            last_amount = loan['amount']
+            # print(f"{key}" + " -----> " + f"{( 1 + (( float(value) + float(percent_above_inflation)) / 1200 )) * float(loan['amount']) - float(installment_amount)}")
+            new_amount = ( 1 + (( float(value) + float(percent_above_inflation)) / 1200 )) * float(loan['amount']) - float(installment_amount)
             loan.update({'amount': ( 1 + (( float(value) + float(percent_above_inflation)) / 1200 )) * float(loan['amount']) - float(installment_amount)})
+            diff_amount = last_amount - new_amount
+            print(f"Twoja pozostała kwota kredytu to {new_amount}, to {diff_amount} mniej niż w poprzednim miesiącu.")
 
 if __name__ == "__main__":
     if len(sys.argv) <= 2 or len(sys.argv) >= 4:
         print("Enter the param as:")
     else:
-        main(sys.argv[2], sys.argv[2])
+        main(sys.argv[1], sys.argv[2])
