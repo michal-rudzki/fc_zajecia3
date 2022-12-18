@@ -1,7 +1,11 @@
-import sys, json
+import sys
+
+loan = {
+    'amount': 12000
+}
 
 year = {
-    2021: { 
+    '2021': { 
         'styczen': 1.592824484,
         'luty': -0.453509101,
         'marzec': 2.324671717,
@@ -16,7 +20,7 @@ year = {
         'grudzien': 0.337779545187098,
     },
     
-    2022: {
+    '2022': {
         'styczen': 1.57703524727525,
         'luty': -0.292781442607648, 
         'marzec': 2.48619659017508, 
@@ -32,11 +36,16 @@ year = {
     }
 }
 
-''' (1+(({inflation}+3)/1200))*{loan_amount}-200'''
+''' (1+(({inflation}+{percent_above_inflation})/1200))*{loan_amount}-{installment_amount} '''
 
-def main():
-
-
+def main(percent_above_inflation, installment_amount):
+    for x in year.values():
+        for key, value in x.items():
+            print(f"{key}" + " -----> " + f"{( 1 + (( float(value) + float(percent_above_inflation)) / 1200 )) * float(loan['amount']) - float(installment_amount)}")
+            loan.update({'amount': ( 1 + (( float(value) + float(percent_above_inflation)) / 1200 )) * float(loan['amount']) - float(installment_amount)})
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) <= 2 or len(sys.argv) >= 4:
+        print("Enter the param as:")
+    else:
+        main(sys.argv[2], sys.argv[2])
