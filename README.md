@@ -1,11 +1,11 @@
-"# fc_zajecia3" 
+# fc_zajecia3
 
 Stwórz program, który na podstawie
 
 tabeli inflacji wartości
 - oprocentowania kredytu,
-- kwoty początkowej kredytu
-- stałej wartości raty
+- kwoty początkowej kredytu,
+- stałej wartości raty.
 
 wyliczy wartość zadłużenia w każdym miesiącu przez 2 nadchodzące lata.
 
