@@ -1,8 +1,6 @@
 # fc_zajecia3
 
-Stwórz program, który na podstawie
-
-tabeli inflacji wartości
+Stwórz program, który na podstawie tabeli inflacji wartości
 - oprocentowania kredytu,
 - kwoty początkowej kredytu,
 - stałej wartości raty.
